@@ -1,0 +1,26 @@
+.page-header
+  %h1 Listing Answers
+
+%table.table
+  %thead
+    %tr
+      %th Question
+      %th Answers
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @admin_answers.each do |admin_answer|
+      %tr
+        %td= admin_answer.question
+        %td= admin_answer.body
+        %td= admin_answer.user
+        %td= link_to 'Show', admin_answer
+        %td= link_to 'Edit', edit_admin_answer_path(admin_answer)
+        %td= link_to 'Destroy', admin_answer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Answer', new_admin_answer_path

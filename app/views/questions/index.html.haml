@@ -1,0 +1,4 @@
+= render @questions
+
+.page_paginate.text-center
+  = will_paginate @questions, renderer: BootstrapPagination::Rails

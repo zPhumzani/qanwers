@@ -1,0 +1,28 @@
+.page-header
+  %h1 Listing Questions
+
+%table.table
+  %thead
+    %tr
+      %th User
+      %th Category
+      %th Question
+      %th Slug
+      %th
+      %th
+      %th
+
+  %tbody
+    - @admin_questions.each do |admin_question|
+      %tr
+        %td= admin_question.user
+        %td= admin_question.category
+        %td= admin_question.body
+        %td= admin_question.slug
+        %td= link_to 'Show', admin_question
+        %td= link_to 'Edit', edit_admin_question_path(admin_question)
+        %td= link_to 'Destroy', admin_question, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Question', new_admin_question_path

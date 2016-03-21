@@ -1,0 +1,10 @@
+= simple_form_for(@question) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :category
+    = f.input :body, label: 'Question'
+    = f.input :all_tags, placeholder: "Tags separated with comma"
+
+  .form-actions
+    = f.button :submit, 'Ask Question'

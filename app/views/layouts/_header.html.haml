@@ -1,0 +1,32 @@
+.header
+  .container
+    .row.visible-lg.visible-md
+      .col-lg-3.col-md-4
+        = render 'layouts/header_title'
+      .col-lg-9.col-md-8
+        .main-nav.pull-right
+          %ul.nav.nav-tabs
+            = render 'layouts/navigation_links'
+    .row.visible-xs.visible-sm
+      .col-lg-3.col-sm-12.text-center
+        = render 'layouts/header_title'
+      .col-lg-9.col-sm-12
+        .main-nav
+          %ul.list-inline.text-center
+            = render 'layouts/navigation_links'
+
+
+
+-# reservation modal
+.modal.fade#question-modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button{type: "button", class: "close", data: {dismiss: "modal"}, aria: {label: "Close"}}
+          %span{ aria: {hidden: "true"}} &times;
+        %h4.modal-title What Your Question
+      .modal-body
+        - @question = Question.new
+        = render 'questions/form'
+      .modal-footer
+        %button{type: "button", class: "btn btn-default btn-xs", data: {dismiss: "modal"}} Close

@@ -1,0 +1,36 @@
+.panel.panel-default
+  .panel-heading
+    %h2
+      = link_to @answer.question.user, user_path(@answer.question.user) 
+      Question
+    %p= sanitize @answer.question.body
+  .panel-body
+    %p= @answer.body
+    %b Answer by:
+    = link_to @answer.user, user_path(@answer.user)
+
+
+  .btn-group
+    = link_to "#{pluralize(@answer.comments.size, 'Reply')}", @answer, class: 'btn btn-default btn-sm'
+    = link_to like_answer_path(@answer), method: :put, class: 'btn btn-default btn-sm' do 
+      %span.glyphicon.glyphicon-chevron-up
+      Upvote
+      = @answer.get_upvotes.size
+    = link_to dislike_answer_path(@answer), method: :put, class: 'btn btn-default btn-sm' do 
+      %span.glyphicon.glyphicon-chevron-down
+      Downvote
+      = @answer.get_downvotes.size
+
+    - if @answer.user == current_user
+      = link_to 'Edit', edit_answer_path(@answer), class: 'btn btn-default btn-sm'
+    = link_to 'Back', answers_path, class: 'btn btn-default btn-sm'
+
+.panel.panel-default
+  .panel-body
+    = render 'comments/form', answer: @answer
+
+.comments
+  = render @comments
+
+.text-center
+  = will_paginate @comments, renderer: BootstrapPagination::Rails

@@ -1,0 +1,6 @@
+= simple_form_for([answer, answer.comments.build]) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :body, label: false, placeholder: "Put Your Comment Here!"
+  .form-actions
+    = f.button :submit, 'Comment'

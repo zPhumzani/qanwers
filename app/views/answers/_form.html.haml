@@ -1,0 +1,6 @@
+= simple_form_for([question, question.answers.build]) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :body, label: false, placeholder: "Place Your Answer Here!"
+  .form-actions
+    = f.button :submit, 'Answer'

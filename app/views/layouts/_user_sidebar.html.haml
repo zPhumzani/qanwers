@@ -1,0 +1,8 @@
+%article
+  .panel.panel-info
+    .panel-heading
+      %h4 Categories
+    .panel-body
+      %ul.nav.nav-pills.nav-stacked
+        - Category.all.each do |cat|
+          %li= link_to cat, cat

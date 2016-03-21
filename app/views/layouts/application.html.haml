@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title= content_for?(:title) ? yield(:title) : 'Q Answers'
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Q Answers'}"}
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %header
+      = render 'layouts/header'
+    %main{:role => "main"}
+      .row
+        .col-md-12
+          = render 'layouts/messages'
+          = render 'layouts/categories'
+        .col-md-7.col-md-push-3
+          = yield
+        - if @activities
+          .col-md-2.col-md-push-3
+            = render 'layouts/sidebar'
+          .col-md-3.col-md-pull-9
+            = render 'layouts/left_sidebar'
+    %footer
+      = render 'layouts/footer'

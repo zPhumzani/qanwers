@@ -1,0 +1,14 @@
+%li.list-group-item
+  - if a.trackable
+    %span.glyphicon.glyphicon-minus
+    %small.text-muted= a.created_at.strftime('%H:%M:%S %-d %B %Y')
+    %br
+    %strong= activity.owner ? activity.owner : 'Guest'
+    updated this question 
+    = link_to truncate(a.trackable.body, length: 100), answer_path(a.trackable) 
+  - else
+    %span.glyphicon.glyphicon-minus
+    %small.text-muted= a.created_at.strftime('%H:%M:%S %-d %B %Y')
+    %br
+    %strong= activity.owner ? activity.owner : 'Guest'
+    deleted a his question

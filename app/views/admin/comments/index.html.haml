@@ -1,0 +1,26 @@
+.page-header
+  %h1 Listing All Comments
+
+%table.table
+  %thead
+    %tr
+      %th Answer
+      %th Replies
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @admin_comments.each do |admin_comment|
+      %tr
+        %td= admin_comment.answer
+        %td= admin_comment.body
+        %td= admin_comment.user
+        %td= link_to 'Show', admin_comment
+        %td= link_to 'Edit', edit_admin_comment_path(admin_comment)
+        %td= link_to 'Destroy', admin_comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Comment', new_admin_comment_path

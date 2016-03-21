@@ -1,0 +1,10 @@
+.page-header
+  %h2= truncate(@comment.answer.body, length: 100)
+  %p.text-muted
+    Question by
+    = link_to @comment.answer.user, ''
+
+%p= @comment.body
+%p 
+  Comment by
+  = link_to @comment.user, ''

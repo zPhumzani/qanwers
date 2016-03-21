@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @profile.user
+%p
+  %b Gender:
+  = @profile.gender
+%p
+  %b Date of birth:
+  = @profile.date_of_birth
+%p
+  %b Country:
+  = @profile.country
+%p
+  %b Interest:
+  = @profile.interest
+%p
+  %b Website:
+  = @profile.website
+%p
+  %b Professional skills:
+  = @profile.professional_skills
+%p
+  %b Language:
+  = @profile.language
+%p
+  %b About you:
+  = @profile.about_you
+
+= link_to 'Edit', edit_profile_path(@profile)
+\|
+= link_to 'Back', profiles_path

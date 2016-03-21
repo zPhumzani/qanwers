@@ -1,0 +1,7 @@
+%blockquote
+  %small
+    Answer by 
+    = link_to answer.user, user_path(answer.user)
+  = answer.body
+  = link_to "#{pluralize(answer.comments.size, 'Reply')}", answer
+  

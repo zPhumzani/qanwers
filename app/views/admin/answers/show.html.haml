@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Question:
+  = @admin_answer.question
+%p
+  %b Body:
+  = @admin_answer.body
+%p
+  %b User:
+  = @admin_answer.user
+
+= link_to 'Edit', edit_admin_answer_path(@admin_answer)
+\|
+= link_to 'Back', admin_answers_path

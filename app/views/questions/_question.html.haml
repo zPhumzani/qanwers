@@ -1,0 +1,24 @@
+.panel.panel-info
+  .panel-body
+    %h3
+      = link_to(truncate(question.body, length: 100), question)
+      %br
+      %small
+        Submitted 
+        = time_ago_in_words(question.created_at)
+        by 
+        = link_to question.user, user_path(question.user)
+    %p= raw tag_links(question.all_tags)
+  .btn-group
+    = link_to "#{pluralize(question.answers.size, 'Answers')}", question, class: 'btn btn-default btn-sm'
+    = link_to like_question_path(question), method: :put, class: 'btn btn-default btn-sm' do 
+      %span.glyphicon.glyphicon-chevron-up
+      Upvote
+      = question.get_upvotes.size
+    = link_to dislike_question_path(question), method: :put, class: 'btn btn-default btn-sm' do 
+      %span.glyphicon.glyphicon-chevron-down
+      Downvote
+      = question.get_downvotes.size
+
+
+

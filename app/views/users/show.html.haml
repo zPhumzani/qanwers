@@ -1,0 +1,47 @@
+.page-header.text-center
+  %h2= "Profile of #{@user}"
+
+.panel.panel-default.text-center
+  .profile
+    %article.thumbnail
+      = image_tag('See-Further-o.jpg', class: 'img-responsive img-circle')
+    %article
+      %h3
+        = @user
+      - if current_user == @user
+        %h3
+          %small= link_to 'Edit Profile', edit_user_profile_path(@user, @user.profile)
+
+  .panel-heading
+    Basic Info
+  .panel-body
+    %h4
+      %b Gender
+    %p= @user.gender
+    %h4
+      %b Date Of Birth
+    %p= @user.date_of_birth
+    %h4
+      %b Language
+    %p= @user.language
+    %h4
+      %b Country
+    %p= @user.country
+    %h4
+      %b Email
+    %p= @user.email 
+  .panel-heading
+    Other info
+  .panel-body
+    %h4
+      %b Interest
+    %p= @user.interest
+    %h4 
+      %b Website
+    %p= @user.website
+    %h4 
+      %b Professional Skills
+    %p= @user.professional_skills
+    %h4
+      %b About You
+    %p= @user.about_you

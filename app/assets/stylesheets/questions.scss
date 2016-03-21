@@ -1,0 +1,155 @@
+$body-copy: "Raleway", "Helvetica Neue", helvetica, arial, verdana, sans-serif;
+$heading-copy: "Raleway", "Helvetica Neue", helvetica, arial, verdana, sans-serif;
+
+// background colors
+$primary-background: $off-white;
+$secondary-background: $white;
+
+// link colors
+$primary-link-color: $red1;
+$primary-link-color-hover: $red2;
+
+body {
+background: $primary-background;
+font-family: $body-copy;
+font-size: $base-font-size;
+line-height: $base-line-height;
+color: $primary-text;
+}
+
+.css1 { font-size: 1.0em;}
+.css2 { font-size: 1.2em;}
+.css3 { font-size: 1.4em;}
+.css4 { font-size: 1.6em;}
+
+main {
+  @extend .container;
+  //background-color: #eee;
+  padding-bottom: 20px;
+  //width: 100%;
+  margin-top: 10px; // accommodate the navbar
+}
+
+.post {
+	background: #fff;
+	padding: 1px ($padding);
+	margin: 2px;
+}
+
+blockquote {
+	background: #fff;
+}
+
+ul.nav.nav-tabs {
+	padding: 0;
+	margin: 0;
+}
+
+.header .container {
+	//background: $primary-background;
+	//background: #d9edf7;
+	//background-image: linear-gradient(#bce8f1, #d9edf7, #31708f);
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.header {
+	padding: ($padding * 3) 0;
+	padding-bottom: 0;
+	background: #d9edf7;
+	background-image: linear-gradient(#31708f, #d9edf7, #bce8f1);
+
+    h1 {
+	  font-weight: 900;
+	  height: 36px;
+	  margin: 0;
+	  line-height: 1;
+	  color: #fff;
+	  text-shadow: 0px 2px 3px #fff;
+    }
+    h1 span {
+      color: red;
+      text-shadow: 0px 2px 3px #3434dd;
+    }
+    h1 strong {
+      color: green;
+      text-shadow: 0px 2px 3px #ec4809;
+    }
+    h1 u, h1 u em {
+      color: blue;
+      text-shadow: 0px 2px 3px #fff;
+    }
+    h1 em {
+      color: grey;
+      text-shadow: 0px 2px 3px #ec45ff;
+    }
+}
+
+
+.main-nav {
+	line-height: 36px;
+
+	ul.nav-tabs {
+	  border: none;
+	  li {
+	    border-radius: 0;
+
+	    a {
+	      border-radius: 0;
+	    }
+	  }
+	}
+
+}
+
+.footer .container {
+	background: #bce8f1;
+	background-image: linear-gradient(#31708f, #d9edf7, #bce8f1);
+	padding: ($padding * 2) 0;
+	margin-top: 0;
+}
+
+.footer {
+	text-align: center;
+	color: #31708f;
+	padding-bottom: ($padding * 4);
+
+	.social-media {
+	  padding: $padding 0;
+
+	  a {
+	    padding: 0 ($padding - 0.5);
+	    font-size: 20px;
+	    //color: #31708f;
+	  }
+
+	  &:hover {
+	    color: $grey;
+	  }
+	}
+    h1 span {
+      color: red;
+      text-shadow: 0px 2px 3px #3434dd;
+    }
+    h1 strong {
+      color: green;
+      text-shadow: 0px 2px 3px #ec4809;
+    }
+    h1 u, h1 u em {
+      color: blue;
+      text-shadow: 0px 2px 3px #fff;
+    }
+    h1 em {
+      color: grey;
+      text-shadow: 0px 2px 3px #ec45ff;
+    }
+}
+
+.page-header {
+	padding: 0;
+	margin: 0;
+}
+
+.breadcrumb {
+	background: #d9edf7;
+}

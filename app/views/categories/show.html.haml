@@ -1,0 +1,13 @@
+.page-header.text-center
+  %h2= @category.name
+
+%article
+  - if @questions.blank?
+    %p 
+      There are no questions in this category yet? 
+      %a{href: '', id: "stop-click", data: {toggle: "modal", target: "#question-modal"}} Ask A Question
+  - else
+    = render @questions
+
+.text-center
+  = will_paginate @questions, renderer: BootstrapPagination::Rails

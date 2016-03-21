@@ -1,0 +1,13 @@
+%article
+  - if @activities
+    .panel.panel-info
+      .panel-heading
+        %h4 Recent Questions
+      .list-group
+        = render_activities @activities
+  - else
+    .panel.panel-info
+      .panel-heading
+        %h4 Navigation
+      .list-group
+

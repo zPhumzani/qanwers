@@ -1,0 +1,36 @@
+.panel.panel-default
+  .panel-heading
+    %h1
+      = link_to @question.user, user_path(@question.user)
+      Asked
+  .panel-body
+    %p= @question.body
+  .btn-group
+    = link_to "#{pluralize(@question.answers.size, 'answers')}", '', class: 'btn btn-default'
+    = link_to like_question_path(@question), method: :put, class: 'btn btn-default' do 
+      %span.glyphicon.glyphicon-chevron-up
+      Upvote
+      = @question.get_upvotes.size
+    = link_to dislike_question_path(@question), method: :put, class: 'btn btn-default' do 
+      %span.glyphicon.glyphicon-chevron-up
+      Downvote
+      = @question.get_downvotes.size
+
+    - if @question.user == current_user
+      = link_to 'Edit', edit_question_path(@question), class: 'btn btn-default'
+      = link_to 'Delete', @question, method: :delete, data: {confirm: "Are You Sure"}, class: 'btn btn-default'
+      = link_to 'Back', questions_path, class: 'btn btn-default'
+
+
+.panel.panel-default
+  .panel.panel-body
+    = render 'answers/form', question: @question
+
+#comments
+  - if @answers.blank?
+    %p There answers no answers for this question?
+  - else
+    = render @answers
+
+.text-center
+  = will_paginate @answers, renderer: BootstrapPagination::Rails
